@@ -1,0 +1,725 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: rgba(1, 49, 74, 0.95);
+    color: antiquewhite;
+    padding: 4px 8px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 60;
+    font-weight: 500;
+}
+
+/* Navegação principal no header */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.nav-menu li {
+    display: inline-block;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-weight: bold;
+    padding: 5px 9px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.subtitle {
+    position: absolute;
+    top: 350px;
+    left: 640px;
+    font-size: 20px;
+    color: #42519c !important;
+}
+
+/* Logos */
+.logo-eduDigital {
+    position: fixed;
+    top: 80px;
+    right: 420px;
+    width: 270px;
+    height: auto;
+    z-index: 100;
+
+}
+
+.logo-semed {
+    position: fixed;
+    top: 430px;
+    right: 200px;
+    width: 370px;
+    z-index: 100;
+}
+
+.logo-robo {
+    position: fixed;
+    top: 435px;
+    right: 725px;
+    width: 240px;
+    z-index: 100;
+}
+
+/* container lateral das abas */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 40px;
+    z-index: 50;
+}
+
+/* abas visíveis por padrão */
+.sidebar .tab {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.6s ease, opacity 0.6s ease, left 0.4s ease;
+}
+
+/* abas somem deslizando */
+.sidebar.hide .tab:not(.active) {
+    transform: translateX(100vw);
+    opacity: 0;
+}
+
+.sidebar.hide .tab.active {
+    transform: translateX(0);
+    opacity: 1;
+    left: 0 !important;
+}
+
+/* tab padrão */
+.tab {
+    transition: left 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 35px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transform-origin: left center;
+    z-index: 5;
+}
+
+.tab.active {
+    transition: transform 0.6s ease, opacity 0.6s ease, left 0.4s ease;
+    position: absolute;
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.6);
+    z-index: 10;
+}
+
+/* texto vertical */
+.text-tab {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-weight: 700;
+    text-align: center;
+    padding: 8px 2px;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+/* cores das 7 abas */
+.tab:nth-child(1) {
+    left: 0px;
+    background: #004AAD;
+}
+
+.tab:nth-child(2) {
+    left: 35px;
+    background: #65a2f1;
+}
+
+.tab:nth-child(3) {
+    left: 70px;
+    background: #004AAD;
+}
+
+.tab:nth-child(4) {
+    left: 105px;
+    background: #65a2f1;
+}
+
+.tab:nth-child(5) {
+    left: 140px;
+    background: #004AAD;
+}
+
+.tab:nth-child(6) {
+    left: 175px;
+    background: #65a2f1;
+}
+
+.tab:nth-child(7) {
+    left: 210px;
+    background: #004AAD;
+}
+
+/* hover */
+.tab:hover {
+    filter: brightness(1.2);
+}
+
+/* área de conteúdo */
+.content {
+    margin-top: 40px;
+    margin-left: 60px;
+    padding: 40px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    background: #ffffff;
+    transition: opacity 0.25s ease;
+    text-align: center;
+}
+
+.content h1 {
+    color: #42519c;
+    position: absolute;
+    top: 80px;
+    left: 690px;
+    font-size: 40px;
+}
+
+.content p {
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* Robô mascote */
+.robot-mascot {
+    position: fixed;
+    bottom: 60px;
+    right: 70px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #E1DC53, #DA0B16);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    font-size: 4.5rem;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    animation: bounce 2s infinite;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.robot-mascot:hover {
+    animation: none;
+    transform: scale(1.1);
+}
+
+/* MODAL PRINCIPAL - Z-INDEX MAIS ALTO */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    /* Aumentado para garantir que apareça */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+/* CONFIGURAÇÃO GERAL DO MODAL-CONTENT */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* CONFIGURAÇÃO ESPECÍFICA PARA O CUSTOMALERT */
+#customAlert .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 16px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botão de fechar modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.icons {
+    font-size: 3rem;
+    margin-right: 8px;
+}
+
+/* fala do robo*/
+.gif-popup {
+    top: 60px !important;
+    position: fixed;
+    z-index: 3000;
+    background: #fff;
+    color: #333;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+}
+
+.btn-add {
+    position: fixed;
+    bottom: 140px;
+    right: 110px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #acb3d3, #fefeff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1.5rem;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #2f3a75, #1a2347);
+}
+
+#popupUpload {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 250px;
+}
+
+.popup-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Botão de toggle RoboEdu */
+.robo-toggle {
+    position: fixed;
+    bottom: 140px;
+    right: 60px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #42519C, #2f3a75);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1.5rem;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.robo-toggle:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #2f3a75, #1a2347);
+}
+
+/* Estado desabilitado do robô */
+.robot-mascot.disabled {
+    opacity: 0.3;
+    animation: none;
+    background: linear-gradient(135deg, #666, #333);
+}
+
+.footer-content {
+    position: fixed;
+    bottom: 0;
+    left: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    background-color: #f9f9f9;
+    /* opcional: cor de fundo */
+    padding: 12px 0;
+}
+
+/* Rodapé responsivo */
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        left: 70px;
+        background-color: #f9f9f9;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+}
+
+
+
+@media (max-width: 708px) {
+
+    /* Robô mascote */
+    .robot-mascot {
+        position: fixed;
+        bottom: 100px;
+        right: 10px;
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(135deg, #E1DC53, #DA0B16);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        font-size: 2.5rem;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        animation: bounce 2s infinite;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Botão de toggle RoboEdu */
+    .robo-toggle {
+        position: fixed;
+        bottom: 205px;
+        right: 25px;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(135deg, #42519C, #2f3a75);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 1.5rem;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .btn-add {
+        position: fixed;
+        bottom: 130px;
+        right: 140px;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(135deg, #acb3d3, #fefeff);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 1.5rem;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+
+    .content h1 {
+        color: #42519c;
+        position: absolute;
+        top: 60px;
+        left: 240px;
+        font-size: 30px;
+    }
+
+    .subtitle {
+        position: absolute;
+        top: 290px;
+        left: 180px;
+        font-size: 15px;
+        color: #42519c !important;
+    }
+
+    .logo-eduDigital {
+        width: 35vw;
+        top: 18vh;
+        left: 240px;
+    }
+
+    .logo-semed {
+        width: 35vw;
+        top: 80vh;
+        left: 280px;
+    }
+
+    .logo-robo {
+        width: 25vw;
+        top: 70vh;
+        left: 180px;
+    }
+
+}
+
+
+
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        /* um pouco maior para toque no celular */
+    }
+
+    .tab {
+        width: 25px;
+        /* aumenta largura da aba */
+    }
+
+    /* reposiciona as abas proporcionalmente */
+    .tab:nth-child(1) {
+        left: 0px;
+    }
+
+    .tab:nth-child(2) {
+        left: 24px;
+    }
+
+    .tab:nth-child(3) {
+        left: 48px;
+    }
+
+    .tab:nth-child(4) {
+        left: 72px;
+    }
+
+    .tab:nth-child(5) {
+        left: 96px;
+    }
+
+    .tab:nth-child(6) {
+        left: 120px;
+    }
+
+    .tab:nth-child(7) {
+        left: 144px;
+    }
+
+    /* texto maior para leitura no celular */
+    .text-tab {
+        font-size: 16px;
+        padding: 10px 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        /* vira barra no topo */
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .tab {
+        position: static;
+        /* tira o absolute */
+        width: auto;
+        height: 100%;
+        flex: 1;
+    }
+
+    .text-tab {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 14px;
+        padding: 0;
+    }
+}
+
+
+/* Ajustes para tablets e telas médias */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .sidebar {
+        width: 80px;
+        /* um pouco maior que no celular */
+    }
+
+    .tab {
+        width: 40px;
+    }
+
+    /* reposiciona as abas proporcionalmente */
+    .tab:nth-child(1) {
+        left: 0px;
+    }
+
+    .tab:nth-child(2) {
+        left: 40px;
+    }
+
+    .tab:nth-child(3) {
+        left: 80px;
+    }
+
+    .tab:nth-child(4) {
+        left: 120px;
+    }
+
+    .tab:nth-child(5) {
+        left: 160px;
+    }
+
+    .tab:nth-child(6) {
+        left: 200px;
+    }
+
+    .tab:nth-child(7) {
+        left: 240px;
+    }
+
+    .text-tab {
+        font-size: 18px;
+        /* mais confortável em tablet */
+        padding: 12px 5px;
+    }
+
+    /* footer ajustado */
+    .footer-content {
+        font-size: 0.9rem;
+        padding: 12px;
+        left: 80px;
+        /* alinhado com sidebar maior */
+    }
+
+    /* logos e títulos */
+    .content h1 {
+        font-size: 36px;
+        top: 30px;
+        left: 300px;
+    }
+
+    .subtitle {
+        font-size: 22px;
+        top: 340px;
+        left: 220px;
+    }
+
+    .logo-eduDigital {
+        width: 30vw;
+        top: 15vh;
+        left: 260px;
+    }
+
+    .logo-semed {
+        width: 18vw;
+        top: 68vh;
+        left: 320px;
+    }
+
+    .logo-robo {
+        width: 9vw;
+        top: 72vh;
+        left: 220px;
+    }
+}
